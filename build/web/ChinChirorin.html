@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>対戦ページ</title>
+        <script type="text/javascript" src="login.js"></script>
+    </head>
+    <body>
+        <form id="loginForm" action="" method="post" onsubmit="return Login.doLogin(this)">
+            <p><input type="submit" value="さいころを振る" /></p>
+            <p><input type="submit" value="ログアウト" /></p>
+        </form>
+    </body>
+</html>

@@ -6,7 +6,7 @@
 
 
 var Login = {};
-
+var href = window.location.href ;
 /** 
  * 超簡易ログイン認証
  * @param loginForm formエレメント
@@ -21,8 +21,9 @@ Login.doLogin = function doLogin(loginForm) {
     if(loginForm.password.value == '') {
        return Login.doError('パスワードを入力してください。');
     }
-
-document.write("username:" + loginForm.username.value);
+    document.write();
+    window.location.href = "./ChinChirorin.html";
+//    document.write("username:" + loginForm.username.value);
     //エラーなし
     return true;
 }
