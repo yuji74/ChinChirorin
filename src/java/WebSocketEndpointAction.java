@@ -6,7 +6,7 @@
 
 /**
  *
- * @author kyo1
+ * @author sogawa
  */
 
 import java.io.IOException;
@@ -46,6 +46,10 @@ public class WebSocketEndpointAction {
 		}
 	}
 
+        
+        
+        
+        
 	@OnClose
 	public void onClose(Session session) {
 		// 完了時
