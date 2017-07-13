@@ -23,6 +23,7 @@ import javax.websocket.server.ServerEndpoint;
 public class WebSocketEndpointAction {
 
     public static List<Session> sessions = new ArrayList<Session>();
+    public UserAdministrator userAdmin = new UserAdministrator();
 
     @OnOpen
     public void onOpen(Session session) {
@@ -34,12 +35,35 @@ public class WebSocketEndpointAction {
     public void onMessage(String message) throws IOException {
         // クライアントからの受信時
         String[] messageArray = message.split(":", 2);
-        for (Session session : sessions) {
-            if (messageArray[1].equals("")) {
-                // ユーザー名の取得と登録がここでできる
-            } else {
-                session.getBasicRemote().sendText("{\"command\":\"message\", \"text\": \"" + message.replace("\\", "\\\\").replace("\"", "\\\"") + "\"}");
-            }
+        switch (messageArray[1]) {
+            case "":
+                // ユーザー名の取得と登録を行う
+                userAdmin.addUser(messageArray[0], 25000);
+                break;
+            case "READY":
+                // ユーザー状態を変更し、したら準備完了メッセージを送信する。
+                if (userAdmin.setUserStateReady(messageArray[0])) {
+                    for (Session session : sessions) {
+                        String sendMessage = messageArray[0] + "さんの準備が完了しました。";
+                        session.getBasicRemote().sendText("{\"command\":\"message\", \"text\": \"" + sendMessage.replace("\\", "\\\\").replace("\"", "\\\"") + "\"}");
+                    }
+                }
+                if (userAdmin.isAllUsersReady()) {
+                    // チンチロリンの実行と結果出力
+                }
+                break;
+            case "LOGOUT":
+                userAdmin.removeUser(messageArray[0]);
+                // ログアウトしたことの通知メッセージの送信
+                for (Session session : sessions) {
+                    String sendMessage = messageArray[0] + "さんがログアウトしました。";
+                    session.getBasicRemote().sendText("{\"command\":\"message\", \"text\": \"" + message.replace("\\", "\\\\").replace("\"", "\\\"") + "\"}");
+                }
+                break;
+            default:
+                for (Session session : sessions) {
+                    session.getBasicRemote().sendText("{\"command\":\"message\", \"text\": \"" + message.replace("\\", "\\\\").replace("\"", "\\\"") + "\"}");
+                }
         }
     }
 
