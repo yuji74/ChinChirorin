@@ -39,9 +39,6 @@ public class User {
         this.state = State.READY;
     }
     public boolean isStateReady(){
-        if(this.state == State.READY){
-            return true;
-        }
-        return false;
+        return this.state == State.READY;
     }
 }
