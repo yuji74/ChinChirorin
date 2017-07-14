@@ -30,13 +30,13 @@ and open the template in the editor.
                     messageArea.insertBefore(messageElement, messageArea.firstChild);
                 }
 
-                // 仮に、名前の登録を初めに入力した文字列であるとして実装
-                var name;
-                var isRegistered = false;
+                // ユーザー名を取得，表示
+                var name = window.localStorage.getItem("name");
 
                 // 通信用WebSocketのイベントハンドラ設定
                 webSocket.onopen = function () {
                     appendMessage("opened", "blue");
+                    webSocket.send(name + ":");
                 }
                 webSocket.onclose = function () {
                     appendMessage("Closed", "red");
@@ -60,15 +60,8 @@ and open the template in the editor.
                     if (13 == e.keyCode) {
                         var message = messageInput.value;
                         if (webSocket && "" != message) {
-                            if (isRegistered == false) {
-                                isRegistered = true;
-                                name = message;
-                                webSocket.send(name + ":");
-                                messageInput.value = "";
-                            } else {
-                                webSocket.send(name + ":" + message);
-                                messageInput.value = "";
-                            }
+                            webSocket.send(name + ":" + message);
+                            messageInput.value = "";
                         }
                     }
                 }

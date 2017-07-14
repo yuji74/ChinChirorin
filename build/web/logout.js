@@ -4,4 +4,5 @@
  * and open the template in the editor.
  */
 
-
+    // ユーザー名を取得，表示
+    document.write("username:"+ window.localStorage.getItem("name"));

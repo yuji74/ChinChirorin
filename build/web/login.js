@@ -6,12 +6,12 @@
 
 
 var Login = {};
-var href = window.location.href ;
 /** 
  * 超簡易ログイン認証
  * @param loginForm formエレメント
  * @return 成功時true,失敗時false
  */
+
 Login.doLogin = function doLogin(loginForm) {
 
     //空チェック
@@ -21,9 +21,13 @@ Login.doLogin = function doLogin(loginForm) {
     if(loginForm.password.value == '') {
        return Login.doError('パスワードを入力してください。');
     }
+    
+    //localstorageにユーザー名を保存
+    window.localStorage.setItem("name", loginForm.username.value);
+    
+    // データの保存
     document.write();
-    window.location.href = "./ChinChirorin.html";
-//    document.write("username:" + loginForm.username.value);
+    window.location.href = "./index.html";
     //エラーなし
     return true;
 }
