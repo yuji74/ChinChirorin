@@ -23,7 +23,7 @@ import javax.websocket.server.ServerEndpoint;
 public class WebSocketEndpointAction {
 
     public static List<Session> sessions = new ArrayList<Session>();
-    public UserAdministrator userAdmin = new UserAdministrator();
+    private UserAdministrator userAdmin = new UserAdministrator();
 
     @OnOpen
     public void onOpen(Session session) {
@@ -50,6 +50,19 @@ public class WebSocketEndpointAction {
                 }
                 if (userAdmin.isAllUsersReady()) {
                     // チンチロリンの実行と結果出力
+                    List<String> userNames = new ArrayList<>();
+                    for (User user : userAdmin.getUsers()) {
+                        userNames.add(user.getName());
+                    }
+                    List<String> sendMessages = ChinchirorinRun.chinchiroRun(userNames);
+                    for (Session session : sessions) {
+                        session.getBasicRemote().sendText("{\"command\":\"message\", \"text\": \"" + "--------------------------------------------------".replace("\\", "\\\\").replace("\"", "\\\"") + "\"}");
+                        for (String sendMessage : sendMessages) {
+                            session.getBasicRemote().sendText("{\"command\":\"message\", \"text\": \"" + sendMessage.replace("\\", "\\\\").replace("\"", "\\\"") + "\"}");
+                        }
+                        session.getBasicRemote().sendText("{\"command\":\"message\", \"text\": \"" + "---------------------------------------------------".replace("\\", "\\\\").replace("\"", "\\\"") + "\"}");
+                    }
+                    userAdmin.userStatesReset();
                 }
                 break;
             case "LOGOUT":

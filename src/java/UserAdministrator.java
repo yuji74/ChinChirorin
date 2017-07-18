@@ -13,9 +13,11 @@ import java.util.List;
  * @author yuji
  */
 public class UserAdministrator {
-    private final List<User> users = new ArrayList<>();
+    private static List<User> users ;
     
     public void addUser(String name, int money){
+        if (users == null)
+            users = new ArrayList<>();
         users.add(new User(name, money));
     }
     public void removeUser(String name){
@@ -52,6 +54,11 @@ public class UserAdministrator {
             }
         }
         return true;
+    }
+    public void userStatesReset(){
+        for(User user : users){
+            user.setWaitState();
+        }
     }
     public List<User> getUsers(){
         return users;
