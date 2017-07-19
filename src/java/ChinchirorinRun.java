@@ -205,6 +205,7 @@ public class ChinchirorinRun {
                 if(!index.equals(winners.size() - 1)){
                     result = result + "さんと";
                 }
+                index++;
             }
             result = result + "さんです！";
             resultMessage.add(result);
