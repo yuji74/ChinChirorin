@@ -70,7 +70,7 @@ public class WebSocketEndpointAction {
                 // ログアウトしたことの通知メッセージの送信
                 for (Session session : sessions) {
                     String sendMessage = messageArray[0] + "さんがログアウトしました。";
-                    session.getBasicRemote().sendText("{\"command\":\"message\", \"text\": \"" + message.replace("\\", "\\\\").replace("\"", "\\\"") + "\"}");
+                    session.getBasicRemote().sendText("{\"command\":\"message\", \"text\": \"" + sendMessage.replace("\\", "\\\\").replace("\"", "\\\"") + "\"}");
                 }
                 break;
             default:
