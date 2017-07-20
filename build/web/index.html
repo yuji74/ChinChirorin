@@ -9,8 +9,10 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title>chat</title>
-        <script type="text/javascript">
+        <script language="javascript" type="text/javascript">
             var webSocket;
+            // ユーザー名を取得，表示
+            var name = window.localStorage.getItem("name")
             window.onload = function () {
                 //var user = new Packages.user.User("sogawa", 1000);
                 var forRtoA = document.createElement('a');
@@ -29,9 +31,7 @@ and open the template in the editor.
                     messageElement.innerText = value;
                     messageArea.insertBefore(messageElement, messageArea.firstChild);
                 }
-
-                // ユーザー名を取得，表示
-                var name = window.localStorage.getItem("name");
+                
 
                 // 通信用WebSocketのイベントハンドラ設定
                 webSocket.onopen = function () {
@@ -66,11 +66,23 @@ and open the template in the editor.
                     }
                 }
             }
+            function sendready() {
+                if (webSocket) {
+                    webSocket.send(name + ":READY");
+                }
+            }
+            function sendlogout() {
+                if (webSocket) {
+                    webSocket.send(name + ":LOGOUT");
+                }
+            }
         </script>
+
     </head>
     <body>
         <div>
-            <input type="text" width="90%" id="messageInput" />
+            <input type="text" id="messageInput" />
+            <input type="button" name="ready" value="準備完了" onClick="sendready();">
         </div>
         <div id="messageArea"></div>
         <div></div>

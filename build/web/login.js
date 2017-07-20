@@ -15,16 +15,16 @@ var Login = {};
 Login.doLogin = function doLogin(loginForm) {
 
     //空チェック
-    if(loginForm.username.value == '') {
+    if (loginForm.username.value == '') {
         return Login.doError('ユーザー名を入力してください。');
     }
-    if(loginForm.password.value == '') {
-       return Login.doError('パスワードを入力してください。');
+    if (loginForm.password.value == '') {
+        return Login.doError('パスワードを入力してください。');
     }
-    
+
     //localstorageにユーザー名を保存
     window.localStorage.setItem("name", loginForm.username.value);
-    
+
     // データの保存
     document.write();
     window.location.href = "./index.html";
