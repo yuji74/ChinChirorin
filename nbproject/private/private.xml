@@ -3,12 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/yuji/NetBeansProjects/ChinChirorin/web/login.html</file>
-            <file>file:/Users/yuji/NetBeansProjects/ChinChirorin/web/index.html</file>
-            <file>file:/Users/yuji/NetBeansProjects/ChinChirorin/web/login.js</file>
-            <file>file:/Users/yuji/NetBeansProjects/ChinChirorin/web/ChinChirorin.html</file>
-            <file>file:/Users/yuji/NetBeansProjects/ChinChirorin/src/java/UserAdministrator.java</file>
-            <file>file:/Users/yuji/NetBeansProjects/ChinChirorin/src/java/User.java</file>
+            <file>file:/Users/kyo1/NetBeansProjects/Chinchirorin/src/java/ChinchirorinRun.java</file>
+            <file>file:/Users/kyo1/NetBeansProjects/Chinchirorin/nbproject/build-impl.xml</file>
+            <file>file:/Users/kyo1/NetBeansProjects/Chinchirorin/src/java/WebSocketEndpointAction.java</file>
+            <file>file:/Users/kyo1/NetBeansProjects/Chinchirorin/web/logout.js</file>
+            <file>file:/Users/kyo1/NetBeansProjects/Chinchirorin/src/java/User.java</file>
+            <file>file:/Users/kyo1/NetBeansProjects/Chinchirorin/web/index.html</file>
+            <file>file:/Users/kyo1/NetBeansProjects/Chinchirorin/src/java/UserAdministrator.java</file>
+            <file>file:/Users/kyo1/NetBeansProjects/Chinchirorin/web/login.js</file>
+            <file>file:/Users/kyo1/NetBeansProjects/Chinchirorin/web/ChinChirorin.html</file>
         </group>
     </open-files>
 </project-private>

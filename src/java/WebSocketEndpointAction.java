@@ -58,7 +58,7 @@ public class WebSocketEndpointAction {
                     for (Session session : sessions) {
                         session.getBasicRemote().sendText("{\"command\":\"message\", \"text\": \"" + "--------------------------------------------------".replace("\\", "\\\\").replace("\"", "\\\"") + "\"}");
                         for (String sendMessage : sendMessages) {
-                            session.getBasicRemote().sendText("{\"command\":\"message\", \"text\": \"" + sendMessage.replace("\\", "\\\\").replace("\"", "\\\"") + "\"}");
+                             session.getBasicRemote().sendText("{\"command\":\"message\", \"text\": \"" + sendMessage.replace("\\", "\\\\").replace("\"", "\\\"") +  "\"}");
                         }
                         session.getBasicRemote().sendText("{\"command\":\"message\", \"text\": \"" + "---------------------------------------------------".replace("\\", "\\\\").replace("\"", "\\\"") + "\"}");
                     }

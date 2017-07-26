@@ -14,13 +14,45 @@ and open the template in the editor.
         </script>
 
     </head>
-    <body>
+   
         <div>
-            <input type="text" id="messageInput" />
-            <input type="button" name="ready" value="準備完了" onClick="sendready();">
-            <input type="button" name="ready" value="ログアウト" onClick="sendlogout();">
+            発言：
+            <input type="text" id="messageInput" style="font-size: 12px;" />
+            <input type="button" name="ready" value="準備完了" onClick="sendready();" style="width:80px; font-size: 12px;">
+            <input type="button" name="ready" value="ログアウト" onClick="sendlogout();" style="width:80px; font-size: 12px;">
         </div>
-        <div id="messageArea"></div>
-        <div></div>
+        <br>
+        <div id="messageArea" style="height:350px; overflow-y: scroll; padding: 10px; margin-bottom: 10px; border: 1px solid #333333; border-radius: 10px; background-color: #cccccc; color: #cccccc;"></div>
+        
+        <style type="text/css">
+        .table4 {
+          border-collapse: collapse;
+          width: 500px;
+        }
+        .table4 th {
+            background-color: #ffffff;
+        }
+        </style>
+        
+        <table class="table4" border=1 align="center">
+            <caption>チンチロリン　ルール</caption>
+                <tr><td width="120"></td><th width="500"></<th>出目</th><th width="100">役</th></tr>
+                <tr align="center"><td rowspan="4">役物</td></tr>
+                <tr><td>[1,1,1] ピンゾロ</td><td>5倍づけ</td></tr>
+                <tr><td>[2,2,2],[3,3,3],[4,4,4],[5,5,5]　ゾロ目</td><td>3倍づけ</td></tr>
+                <tr><td>[4,5,6]　シゴロ</td><td>2倍づけ</td></tr>
+                <tr align="center"><td rowspan="7">通常の目</td></tr>
+                <tr><td>[2,2,6]　6の目</td><td>1倍づけ</td></tr>
+                <tr><td>[3,3,5]　5の目</td><td>1倍づけ</td></tr>
+                <tr><td>[1,1,4]　4の目</td><td>1倍づけ</td></tr>
+                <tr><td>[4,4,3]　3の目</td><td>1倍づけ</td></tr>
+                <tr><td>[5,5,2]　2の目</td><td>1倍づけ</td></tr>
+                <tr><td>[6,6,1]　1の目</td><td>1倍づけ</td></tr>
+                <tr align="center"><td rowspan="2">目なし</td></tr>
+                <tr><td>[2,3,5],[3,5,6]など　目なし</td><td>1倍払い</td></tr>
+                <tr align="center"><td rowspan="2">負の役物</td></tr>
+                <tr><td>[1,2,3]　ヒフミ</td><td>2倍払い</td></tr>
+        </table>
+        
     </body>
 </html>
